@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: signal-demo-deployment
+  labels:
+    app: signal-demo
+spec:
+  selector:
+    matchLabels:
+      app: signal-demo
+  template:
+    metadata:
+      labels:
+        app: signal-demo
+    spec:
+      containers:
+      - name: signal-demo
+        image: drpsychick/signal-demo
