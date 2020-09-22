@@ -19,6 +19,7 @@ script:
   - docker run -d --name demo2 $IMAGE
   - sleep 2
   - docker exec demo2 kill -USR1 1
+  - sleep 2
   - docker stop demo2
   - docker logs -f demo2
   # third run, stop exec
