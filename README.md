@@ -2,7 +2,7 @@
 Handling signals in a docker container
 
 [![Docker image](https://img.shields.io/docker/image-size/drpsychick/signal-demo?sort=date)](https://hub.docker.com/r/drpsychick/signal-demo/tags)
-[![DockerHub build status](https://img.shields.io/docker/cloud/build/drpsychick/signal-demo.svg)](https://hub.docker.com/r/drpsychick/signal-demo/builds/)
+[![Travis build status](https://travis-ci.com/DrPsychick/docker-signal-demo.svg?branch=master)](https://travis-ci.com/DrPsychick/docker-signal-demo)
 [![DockerHub pulls](https://img.shields.io/docker/pulls/drpsychick/signal-demo.svg)](https://hub.docker.com/r/drpsychick/signal-demo/)
 [![DockerHub stars](https://img.shields.io/docker/stars/drpsychick/signal-demo.svg)](https://hub.docker.com/r/drpsychick/signal-demo/)
 [![GitHub stars](https://img.shields.io/github/stars/drpsychick/docker-signal-demo.svg)](https://github.com/drpsychick/docker-signal-demo)
