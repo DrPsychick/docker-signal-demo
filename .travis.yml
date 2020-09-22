@@ -12,6 +12,7 @@ script:
   - docker build --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
   - docker run -d --name demo $IMAGE
   - docker exec demo kill -INT 1
+  - docker logs -f demo
   - docker rm demo
   # second run, stop through docker
   - docker run -d --name demo -e EXEC_DEMO=yes $IMAGE
