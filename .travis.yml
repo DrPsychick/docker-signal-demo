@@ -10,15 +10,21 @@ env:
 script:
   # first run, stop through signal
   - docker build --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
-  - docker run -d --name demo $IMAGE
-  - docker exec demo kill -INT 1
-  - docker logs -f demo
-  - docker rm demo
+  - docker run -d --name demo1 $IMAGE
+  - sleep 2
+  - docker exec demo1 kill -HUP 1
+  - docker exec demo1 kill -INT 1
+  - docker logs -f demo1
   # second run, stop through docker
-  - docker run -d --name demo -e EXEC_DEMO=yes $IMAGE
-  - docker exec demo kill -HUP 1
-  - docker stop demo
-  - docker logs --tail 100 demo
+  - docker run -d --name demo2 $IMAGE
+  - sleep 2
+  - docker exec demo2 kill -USR1 1
+  - docker stop demo2
+  - docker logs -f demo2
+  # third run, stop exec
+  - docker run -d --name demo3 -e EXEC_DEMO=yes $IMAGE
+  - docker logs -f demo3
+
 
 after_success:
   - bash deploy.sh
