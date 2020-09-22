@@ -1,4 +1,11 @@
-# Handling signals in a docker container 
+# [Docker image: signal-demo](https://hub.docker.com/r/drpsychick/signal-demo/)
+Handling signals in a docker container
+
+[![Docker image](https://img.shields.io/docker/image-size/drpsychick/signal-demo?sort=date)](https://hub.docker.com/r/drpsychick/signal-demo/tags)
+[![DockerHub build status](https://img.shields.io/docker/cloud/build/drpsychick/signal-demo.svg)](https://hub.docker.com/r/drpsychick/signal-demo/builds/)
+[![DockerHub pulls](https://img.shields.io/docker/pulls/drpsychick/signal-demo.svg)](https://hub.docker.com/r/drpsychick/signal-demo/)
+[![DockerHub stars](https://img.shields.io/docker/stars/drpsychick/signal-demo.svg)](https://hub.docker.com/r/drpsychick/signal-demo/)
+[![GitHub stars](https://img.shields.io/github/stars/drpsychick/docker-signal-demo.svg)](https://github.com/drpsychick/docker-signal-demo)
 
 ## Purpose
 Demo/playground to play with signal handling in docker / kubernetes, additionally along with `tmux` or `screen` sessions.

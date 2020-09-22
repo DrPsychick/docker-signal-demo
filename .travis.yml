@@ -8,9 +8,12 @@ env:
     - UBUNTU_VERSION=latest
 
 script:
+  # first run, stop through signal
   - docker build --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
   - docker run -d --name demo $IMAGE
   - docker exec demo kill -INT 1
+  - docker rm demo
+  # second run, stop through docker
   - docker run -d --name demo -e EXEC_DEMO=yes $IMAGE
   - docker exec demo kill -HUP 1
   - docker stop demo
