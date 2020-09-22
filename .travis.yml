@@ -1,0 +1,20 @@
+dist: bionic
+os: linux
+language: bash
+
+env:
+  global:
+    - IMAGE=drpsychick/signal-demo
+    - UBUNTU_VERSION=latest
+
+script:
+  - docker build --build-arg UBUNTU_VERSION=$UBUNTU_VERSION -t $IMAGE .
+  - docker run -d --name demo $IMAGE
+  - docker exec demo kill -INT 1
+  - docker run -d --name demo -e EXEC_DEMO=yes $IMAGE
+  - docker exec demo kill -HUP 1
+  - docker stop demo
+  - docker logs --tail 100 demo
+
+after_success:
+  - bash deploy.sh
