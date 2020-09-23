@@ -26,10 +26,13 @@ docker run -it --rm --name demo drpsychick/signal-demo
 ### Kubernetes
 ```shell script
 kubectl apply -f k8s/signal-demo.yml
-kubectl logs -f signal-demo
+kubectl logs -f -l app=signal-demo
 # will run and wait for signal
 
-> kubectl delete signal-demo # in another shell
+> kubectl delete pod -l app=signal-demo # in another shell (k8s will create a new pod)
+--> got TERM signal
+
+> kubectl delete -f k8s/signal-demo.yml # in another shell
 --> got TERM signal
 ```
 
@@ -39,7 +42,7 @@ In interactive mode, the first signal to try is Ctrl-C, it will send an INT sign
 Other signals can be sent through the `exec` commands to PID 1 in the pod:
 ```shell script
 docker exec test kill -HUP 1
-kubectl exec signal-demo-python kill -USR1 1
+kubectl exec deploy/signal-demo-deployment -- kill -USR1 1
 ```
 
 You'll see the corresponding messages as defined in the trap commands:

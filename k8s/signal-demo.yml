@@ -16,3 +16,4 @@ spec:
       containers:
       - name: signal-demo
         image: drpsychick/signal-demo
+      terminationGracePeriodSeconds: 60
